@@ -7,12 +7,12 @@ AC_PREFIX_DEFAULT(/usr)
 #Added by neeraj rawat
 LT_INIT([disable-shared])
 LT_PREREQ([2.4.2])
-##################
+#################
 AC_PROG_LIBTOOL
 
 #added by neeraj rawat
 AM_PROG_LIBTOOL
-####################
+#################
 
 
 AC_ARG_ENABLE(shared,
