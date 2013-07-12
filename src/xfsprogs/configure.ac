@@ -4,7 +4,16 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADER(include/platform_defs.h)
 AC_PREFIX_DEFAULT(/usr)
 
+#Added by neeraj rawat
+LT_INIT([disable-shared])
+LT_PREREQ([2.4.2])
+##################
 AC_PROG_LIBTOOL
+
+#added by neeraj rawat
+AM_PROG_LIBTOOL
+####################
+
 
 AC_ARG_ENABLE(shared,
 [ --enable-shared=[yes/no] Enable use of shared libraries [default=yes]],,
