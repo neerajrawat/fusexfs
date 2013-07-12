@@ -1,6 +1,9 @@
 XFS User Tools README
 _____________________
 
+use 
+sudo gmake
+
 See the file doc/INSTALL for build, installation and post-
 install configuration steps.
 
