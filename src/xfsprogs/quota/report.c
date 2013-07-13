@@ -20,7 +20,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <grp.h>
-#include <utmp.h>
+#include <utmpx.h>
 #include "init.h"
 #include "quota.h"
 
