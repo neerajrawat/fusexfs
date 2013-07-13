@@ -1,4 +1,4 @@
-#include <libc.h>
+#include <libproc.h>
 #include <xfs/libxfs.h>
 #include <sys/stat.h>
 
