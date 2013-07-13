@@ -6,6 +6,8 @@ INCLUDES=$(XFS_INCLUDES) $(XFSUTILS_INCLUDES) $(FUSE_INCLUDES) -I.
 CFLAGS=$(FUSE_CFLAGS) $(INCLUDES)
 LDFLAGS=$(FUSE_LDFLAGS)
 
+CC=gcc
+
 fuse-xfs: $(BINS)/fuse-xfs
 
 $(OBJECTS)/main_fuse.o: main.c $(SRC)/xfsutil/xfsutil.h
