@@ -22,9 +22,17 @@ $(LIBS)/libxfs.a: $(LIBS) $(BINS)
 		ln -sf $(PWD)/xfsprogs/$$LIB/.libs/$$LIB.la $(LIBS)/;\
 		ln -sf $(PWD)/xfsprogs/$$LIB/.libs/$$LIB.dylib $(LIBS)/;\
 	done
-
+	
+	for LIB in libdisk libxcmd libxlog libxfs; do\
+		echo $$LIB;\
+		sudo rm $(LIBS)/$$LIB.a;\
+		sudo cp xfsprogs/$$LIB/.libs/$$LIB.a $(LIBS)/;\
+		sudo rm $(LIBS)/$$LIB.la;\
+		sudo cp xfsprogs/$$LIB/.libs/$$LIB.la $(LIBS)/;\
+	done
+	
 $(BINS)/mkfs.xfs: $(LIBS)/libxfs.a $(BINS)
-	cp $(PWD)/xfsprogs/mkfs/mkfs.xfs $(BINS)/
+	cp xfsprogs/mkfs/mkfs.xfs $(BINS)/
 
 $(OBJECTS)/xfsutil.o: $(OBJECTS)
 	$(MAKE) -C xfsutil
