@@ -6,12 +6,25 @@
  *
  */
 
-#include <fuse.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <libgen.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse.h>
 #include <string.h>
+#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse_lowlevel.h>
 #include <errno.h>
 #include <sys/stat.h>
+#include <sys/statvfs.h>
 #include <fuse_xfs.h>
 #include <xfsutil.h>
+
 
 #ifdef DEBUG
 #define log_debug printf
