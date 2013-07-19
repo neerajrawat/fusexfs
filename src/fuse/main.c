@@ -5,7 +5,8 @@
  * Created by Alexandre Hardy on 4/16/11.
  *
  */
-#include "fuse.h"
+
+#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse.h>
 #include "fuse_xfs.h"
 #include <unistd.h>
 #include <string.h>
@@ -145,7 +146,7 @@ int main(int argc, char* argv[], char* envp[], char** exec_path) {
 
     if (opts.printuuid) {
         for (i=0; i<16; i++) {
-            printf("%02x", opts.xfs_mount->m_sb.sb_uuid[i]);
+            //printf("%02x", opts.xfs_mount->m_sb.sb_uuid[i]);
             if ((i==3) || (i==5) || (i==7) || (i==9))
                 printf("-");
         }
