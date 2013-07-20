@@ -6,7 +6,7 @@
  *
  */
 
-////////Added by Neeraj Rawat//////////////
+/* Added by Neeraj Rawat */
 #include <ctype.h>
 #include <dirent.h>
 #include <fcntl.h>
@@ -18,7 +18,7 @@
 #include <sys/types.h>
 #include "fuse.h"
 #include "fuse_lowlevel.h"
-//////////////////////////
+/*************************/
 
 #include <string.h>
 #include <errno.h>
