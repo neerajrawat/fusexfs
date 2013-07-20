@@ -6,7 +6,7 @@
  *
  */
 
-#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse.h>
+#include "fuse.h"
 #include "fuse_xfs.h"
 #include <unistd.h>
 #include <string.h>
