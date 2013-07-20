@@ -4,8 +4,6 @@ include ../Make.inc
 
 LDFLAGS=-lreadline
 
-CC=gcc
-
 xfs-cli: $(BINS)/xfs-cli
 
 xfs-rcopy: $(BINS)/xfs-rcopy
