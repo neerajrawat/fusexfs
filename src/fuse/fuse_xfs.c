@@ -6,6 +6,7 @@
  *
  */
 
+////////Added by Neeraj Rawat//////////////
 #include <ctype.h>
 #include <dirent.h>
 #include <fcntl.h>
@@ -15,10 +16,11 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include "fuse.h"
+#include "fuse_lowlevel.h"
+//////////////////////////
 
-#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse.h>
 #include <string.h>
-#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse_lowlevel.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/statvfs.h>
