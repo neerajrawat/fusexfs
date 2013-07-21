@@ -9,7 +9,7 @@ OBJECTS=$(BUILD)/obj
 CC=gcc
 FUSE_CFLAGS=-D_FILE_OFFSET_BITS=64 -DFUSE_USE_VERSION=26
 FUSE_LDFLAGS=`pkg-config fuse --libs`
-FUSE_INCLUDES=-I/usr/local/include/osxfuse
+FUSE_INCLUDES=-I/usr/local/include/fuse
 XFSUTILS_INCLUDES=-I$(SRC)/xfsutil
 XFS_INCLUDES=-I$(SRC)/xfsprogs/include
 
