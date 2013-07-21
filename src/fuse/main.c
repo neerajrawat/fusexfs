@@ -6,7 +6,7 @@
  *
  */
 
-#include "fuse.h"
+#include <fuse.h>
 #include "fuse_xfs.h"
 #include <unistd.h>
 #include <string.h>
