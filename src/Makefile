@@ -25,14 +25,16 @@ $(LIBS)/libxfs.a: $(LIBS) $(BINS)
 	
 	for LIB in libdisk libxcmd libxlog libxfs; do\
 		echo $$LIB;\
-		sudo rm $(LIBS)/$$LIB.a;\
-		sudo cp xfsprogs/$$LIB/.libs/$$LIB.a $(LIBS)/;\
-		sudo rm $(LIBS)/$$LIB.la;\
-		sudo cp xfsprogs/$$LIB/.libs/$$LIB.la $(LIBS)/;\
+		rm $(LIBS)/$$LIB.a;\
+		cp xfsprogs/$$LIB/.libs/$$LIB.a $(LIBS)/;\
+		rm $(LIBS)/$$LIB.la;\
+		cp xfsprogs/$$LIB/.libs/$$LIB.la $(LIBS)/;\
 	done
 	
 $(BINS)/mkfs.xfs: $(LIBS)/libxfs.a $(BINS)
 	cp xfsprogs/mkfs/mkfs.xfs $(BINS)/
+	install -b $(BINS)/fuse-xfs /usr/bin
+	install -b $(BINS)/mkfs.xfs /usr/bin
 
 $(OBJECTS)/xfsutil.o: $(OBJECTS)
 	$(MAKE) -C xfsutil
@@ -46,7 +48,7 @@ $(BINS)/xfs-rcopy: $(LIBS)/libxfs.a $(OBJECTS)/xfsutil.o $(BINS)
 $(BINS)/fuse-xfs: $(LIBS)/libxfs.a $(OBJECTS)/xfsutil.o $(BINS)
 	$(MAKE) -C fuse
 
-$(BUILD)/fuse-xfs-$(VERSION).dmg: $(PROGRAMS)
+$(BUILD)/fuse-xfs.dmg: $(PROGRAMS)
 	$(MAKE) -C macosx
 
 clean:
