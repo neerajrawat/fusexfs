@@ -2,7 +2,7 @@ TOPLEVEL=..
 
 include Make.inc
 
-all: $(PROGRAMS) $(DMG)
+all: $(PROGRAMS)
 
 $(LIBS):
 	mkdir -p $(LIBS)
@@ -48,9 +48,6 @@ $(BINS)/xfs-rcopy: $(LIBS)/libxfs.a $(OBJECTS)/xfsutil.o $(BINS)
 $(BINS)/fuse-xfs: $(LIBS)/libxfs.a $(OBJECTS)/xfsutil.o $(BINS)
 	$(MAKE) -C fuse
 
-$(BUILD)/fuse-xfs.dmg: $(PROGRAMS)
-	$(MAKE) -C macosx
-
 clean:
 	rm -rf $(BINS)/*
 	rm -rf $(LIBS)/*
@@ -59,4 +56,3 @@ clean:
 	$(MAKE) -C fuse clean
 	$(MAKE) -C xfsutil clean
 	$(MAKE) -C xfsprogs clean
-	$(MAKE) -C macosx clean
