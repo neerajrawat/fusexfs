@@ -15,7 +15,7 @@ void print_int(uint64_t size, int chars) {
     char result[256];
     int i, n;
 
-    sprintf(result, "%lld", size);
+    sprintf(result, "%lu", size);
     n = strlen(result);
     printf(" ");
     for (i=n; i<chars; i++) printf(" ");
@@ -175,7 +175,7 @@ int main(int argc, char *argv[]) {
     if (mp == NULL) 
         return 1;
     
-    while (line = fetchline(mp, path)) {
+    while (line == fetchline(mp, path)) {
         inode = NULL;
         strip(line, ' ');
         if (strncmp(line, "cd ", 3) == 0) {
@@ -265,7 +265,7 @@ int main(int argc, char *argv[]) {
                         }
                     }
                     close(fd);
-                    printf("Retrieved %lld bytes\n", offset);
+                    printf("Retrieved %ld bytes\n", offset);
                 }
             } else {
                 if (r) 

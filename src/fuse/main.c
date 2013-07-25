@@ -106,7 +106,7 @@ int xfs_probe(struct fuse_xfs_options* opts) {
     return 1;
 }
 
-int main(int argc, char* argv[], char* envp[], char** exec_path) {
+int main(int argc, char* argv[]) {
     struct fuse_xfs_options opts;
     char *fuse_argv[256];
     char fsname[20];

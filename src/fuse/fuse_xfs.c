@@ -6,7 +6,7 @@
  *
  */
 
-/* Added by Neeraj Rawat */
+
 #include <ctype.h>
 #include <dirent.h>
 #include <fcntl.h>
@@ -16,17 +16,18 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <fuse.h>
-#include <fuse_lowlevel.h>
-/*************************/
 
+//#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse.h>
+#include <fuse.h>
 #include <string.h>
+//#include <fuse_lowlevel.h>
+//#include </usr/ports/sysutils/fusefs-libs/work/fuse-2.9.2/include/fuse_lowlevel.h>
+#include <fuse_lowlevel.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/statvfs.h>
 #include <fuse_xfs.h>
 #include <xfsutil.h>
-
 
 #ifdef DEBUG
 #define log_debug printf
@@ -114,8 +115,7 @@ int fuse_xfs_filldir(void *filler_info, const char *name, int namelen, off_t off
     return r;
 }
 
-static int
-fuse_xfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+static int fuse_xfs_readdir(const char *path, void *buf, //fuse_fill_dir_t filler,
                  off_t offset, struct fuse_file_info *fi) {
     log_debug("readdir %s\n", path);
     int r;
@@ -128,7 +128,7 @@ fuse_xfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
     }
     
     filler_info.buf = buf;
-    filler_info.filler = filler;
+    //filler_info.filler = filler;
     xfs_readdir(inode, (void *)&filler_info, 1024000, &offset, fuse_xfs_filldir);
     libxfs_iput(inode, 0);
     return 0;
@@ -206,7 +206,7 @@ fuse_xfs_read(const char *path, char *buf, size_t size, off_t offset,
               struct fuse_file_info *fi) {
     int r;
     log_debug("read %s\n", path); 
-    r = xfs_readfile((xfs_inode_t *)fi->fh, buf, offset, size, NULL);
+    r = xfs_readfile((uint64_t)fi->fh, buf, offset, size, NULL);
     return r;
 }
 
@@ -221,7 +221,7 @@ static int
 fuse_xfs_statfs(const char *path, struct statvfs *stbuf) {
     xfs_mount_t *mount = current_xfs_mount();
     
-    memset(stbuf, 0, sizeof(*stbuf));
+    memset(stbuf, 0, sizeof(stbuf));
     stbuf->f_bsize = mount->m_sb.sb_blocksize;
     stbuf->f_frsize = mount->m_sb.sb_blocksize;
     stbuf->f_blocks =  mount->m_sb.sb_dblocks;
@@ -285,7 +285,9 @@ void *
 fuse_xfs_init(struct fuse_conn_info *conn) {
     //FUSE_ENABLE_XTIMES(conn);
     struct fuse_context *cntx=fuse_get_context();
-    struct fuse_xfs_options *opts = (struct fuse_xfs_options *)cntx->private_data;
+    struct fuse_xfs_options *opts;
+    opts = malloc(sizeof(struct fuse_xfs_options));
+    opts = (struct fuse_xfs_options *)cntx->private_data;
     //char *progname = "fuse-xfs";
 
     //fuse_xfs_mp = mount_xfs(progname, opts->device);

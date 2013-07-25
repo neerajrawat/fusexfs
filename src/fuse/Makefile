@@ -15,7 +15,7 @@ $(OBJECTS)/fuse_xfs.o: fuse_xfs.c $(SRC)/xfsutil/xfsutil.h
 	$(CC) -w $(CFLAGS) -o $(OBJECTS)/fuse_xfs.o -c fuse_xfs.c 
 
 $(BINS)/fuse-xfs: $(OBJECTS)/main_fuse.o $(OBJECTS)/fuse_xfs.o $(OBJECTS)/xfsutil.o $(LIBS)/libxfs.a
-	$(CC) $(LDFLAGS) -o $(BINS)/fuse-xfs $(OBJECTS)/main_fuse.o $(OBJECTS)/fuse_xfs.o $(OBJECTS)/xfsutil.o $(LIBS)/libxfs.a
+	$(CC) $(LDFLAGS) -w -o $(BINS)/fuse-xfs $(OBJECTS)/main_fuse.o $(OBJECTS)/fuse_xfs.o $(OBJECTS)/xfsutil.o $(LIBS)/libxfs.a
 
 clean:
 
