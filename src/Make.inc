@@ -2,6 +2,7 @@ VERSION=0.1
 
 BUILD=$(TOPLEVEL)/build
 SRC=$(TOPLEVEL)/src
+MAN=$(TOPLEVEL)/man
 BINS=$(BUILD)/bin
 LIBS=$(BUILD)/lib
 OBJECTS=$(BUILD)/obj

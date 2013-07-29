@@ -35,6 +35,8 @@ $(BINS)/mkfs.xfs: $(LIBS)/libxfs.a $(BINS)
 	cp xfsprogs/mkfs/mkfs.xfs $(BINS)/;\
 	install $(BINS)/fuse-xfs /usr/bin;\
 	install $(BINS)/mkfs.xfs /usr/bin;\
+	install $(MAN)/fuse-xfs.1 /usr/local/man/man1;\
+	install $(MAN)/mkfs.xfs.8 /usr/local/man/man1;\
 
 $(OBJECTS)/xfsutil.o: $(OBJECTS)
 	$(MAKE) -C xfsutil
